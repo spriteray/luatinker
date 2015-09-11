@@ -139,7 +139,7 @@ namespace luatinker
         struct is_enum
         {
             static T arg;
-            static const bool value =(( sizeof( int_conv_tester( arg ) ) == sizeof( yes_type ) ) &&( sizeof( vfnd_ptr_tester( add_ptr( arg ) ) ) == sizeof( yes_type ) ) );
+            static const bool value = ( ( sizeof(int_conv_tester(arg)) == sizeof(yes_type) ) && ( sizeof(vfnd_ptr_tester(add_ptr(arg))) == sizeof(yes_type) ) );
         };
 
     // from lua
@@ -194,7 +194,7 @@ namespace luatinker
         {
             static T invoke( lua_State *L, int index )
             {
-                return( T )( int ) lua_tointeger( L, index );
+                return ( T )lua_tointeger( L, index );
             }
         };
 
@@ -295,7 +295,7 @@ namespace luatinker
             }
         };
 
-    // 指针传入lua
+    // 引用传入lua
     // 方法：ref2user<T> 分配在lua上，而T引用input存在C++中，通过ref2user<T>中的指针指向
     template<typename T>
         struct ref2lua
